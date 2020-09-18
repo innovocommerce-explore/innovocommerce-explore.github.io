@@ -1,0 +1,20 @@
+{
+  "version-1.2.2-docs": {
+    "Docusaurus": [
+      "version-1.2.2-doc1"
+    ],
+    "Document Analysis": [
+      "version-1.2.2-doc2",
+      "version-1.2.2-rules"
+    ],
+    "Second Category": [
+      "version-1.2.2-doc3"
+    ]
+  },
+  "version-1.2.2-docs-other": {
+    "First Category": [
+      "version-1.2.2-doc4",
+      "version-1.2.2-doc5"
+    ]
+  }
+}
