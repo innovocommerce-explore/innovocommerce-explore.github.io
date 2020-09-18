@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Rules · Xenon Documentation</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The document analysis modeling support the inclusion of validation rules."/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Rules · Xenon Documentation"/><meta property="og:type" content="website"/><meta property="og:url" content="https://innovocommerce-explore.github.io/innovocommerce-explore.github.io/"/><meta property="og:description" content="The document analysis modeling support the inclusion of validation rules."/><meta property="og:image" content="https://innovocommerce-explore.github.io/innovocommerce-explore.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://innovocommerce-explore.github.io/innovocommerce-explore.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/innovocommerce-explore.github.io/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://innovocommerce-explore.github.io/innovocommerce-explore.github.io/blog/atom.xml" title="Xenon Documentation Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://innovocommerce-explore.github.io/innovocommerce-explore.github.io/blog/feed.xml" title="Xenon Documentation Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/innovocommerce-explore.github.io/js/scrollSpy.js"></script><link rel="stylesheet" href="/innovocommerce-explore.github.io/css/main.css"/><script src="/innovocommerce-explore.github.io/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/innovocommerce-explore.github.io/"><img class="logo" src="/innovocommerce-explore.github.io/img/favicon.ico" alt="Xenon Documentation"/><h2 class="headerTitleWithLogo">Xenon Documentation</h2></a><a href="/innovocommerce-explore.github.io/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/innovocommerce-explore.github.io/docs/next/doc1" target="_self">Documentation</a></li><li class=""><a href="/innovocommerce-explore.github.io/docs/next/doc4" target="_self">API</a></li><li class=""><a href="/innovocommerce-explore.github.io/help" target="_self">Help</a></li><li class=""><a href="/innovocommerce-explore.github.io/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Document Analysis</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Docusaurus</h3><ul class=""><li class="navListItem"><a class="navItem" href="/innovocommerce-explore.github.io/docs/next/doc1">Example Page</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Document Analysis</h3><ul class=""><li class="navListItem"><a class="navItem" href="/innovocommerce-explore.github.io/docs/next/doc2">document number 2</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/innovocommerce-explore.github.io/docs/next/rules">Rules</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Second Category</h3><ul class=""><li class="navListItem"><a class="navItem" href="/innovocommerce-explore.github.io/docs/next/doc3">This is document number 3</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Rules</h1></header><article><div><span><p>The document analysis modeling support the inclusion of validation rules.</p>
+<p>A validation rule is a combination of three components:</p>
+<ul>
+<li>Validated field: This is the name of the model field against which the validation will indicate if the rule was satisified or not.</li>
+<li>Rule expression: An expression that will be evaluated per document to determine if the rule is satisified.</li>
+<li>Error description expression: An expression that will be evaluated to display a text when the rule has <strong>not</strong> been satisfied.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="validated-field"></a><a href="#validated-field" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Validated field</h2>
+<p>The validation field name corresponds to the field as defined in the document analysis model. See <a href="/innovocommerce-explore.github.io/docs/next/doc2">Document Analysis Models</a></p>
+<p>For example: <code>field_name</code>, <code>version</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="rule-expression"></a><a href="#rule-expression" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rule expression</h2>
+<p>This expression is the heart of the rule as it defines how the validation will occur. It is a logical expression that indicates how a field should be evaluated.</p>
+<p>The rule expressions can have <em>field names</em>, <em>values</em>, <em>comparisons</em>, <em>logical operations</em>:</p>
+<ul>
+<li>Field names: these are the same fields as defined in the document analysis models. For example, <code>version</code>.</li>
+<li>Values: These indicate numbers, strings, or dates. To represent a string it must be enclosed by either <code>&quot;</code> or <code>'</code>. All dates must be represented in a string, and should be in a format that can be used to compare it with the date format of the defined document analysis model. For example, a number: <code>3.25</code>; both <code>&quot;InnovoCommerce Xenon&quot;</code> and <code>'InnovoCommerce Xenon'</code> represent the same string, but not <code>'&quot;InnovoCommerce Xenon&quot;'</code> as the latter is including the <code>&quot;</code> character as part of the string (the single quote is defining the begininng and end of the string); a valid date is <code>&quot;2020-09-01&quot;</code>.</li>
+<li>Comparisons: In order to express how a field is related to another field or to a given value comparisons are needed. For example, do you want to check if the <code>version</code> field is <em>equal</em> to a <em>numeric value</em> then you would use an <em>equality comparison.</em></li>
+<li>Logical operations: If you want to combine multiple comparisons logical operations are helpful. For example, do you want to check if <code>version</code> field must be equal to a given value <em>and</em> <code>doc_name</code> must equal to a known string? This can be accomplished by joining both comparison by the <strong>AND</strong> logical operation.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="comparisons"></a><a href="#comparisons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Comparisons</h3>
+<p>Supported comparisons:</p>
+<ul>
+<li>Equality: Represented by <code>=</code>. For example, field <code>persons</code> must equal 3: <code>persons = 3</code></li>
+<li>Inequality: Represented by <code>&lt;&gt;</code>. For example, field <code>patient_name</code> must not equal <strong>John Smith</strong>: <code>patient_name &lt;&gt; 'John Smith'</code></li>
+<li>Less than or before a certain date: Represented by <code>&lt;</code>. For example, field <code>num_persons</code> must be less than 10 <code>num_persons &lt; 10</code>.</li>
+<li>Less than or equal to or before or on a certain date. Represented by <code>&lt;=</code>. For example, field <code>signature_date</code> must be before or on September 1st, 2020: <code>signature_date &lt;= '2020-09-01'</code></li>
+<li>More than or after a certain date: Represented by <code>&gt;</code>.</li>
+<li>More than or equal to or after or on a certain date: Represented by <code>&gt;=</code>.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="logical-operations"></a><a href="#logical-operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logical Operations</h3>
+<p>These operations logically join comparisons or modify its behavior.</p>
+<h3><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples</h3>
+<ul>
+<li><code>version</code> field must equal <strong>2</strong>: <code>version = 2</code></li>
+<li><code>version</code> field must be more than <strong>2</strong>: <code>version &gt; 2</code></li>
+<li><code>version_date</code> field must be later than or equal to <strong>September 1, 2020</strong>: <code>version_date &gt;= '2020-09-01'</code></li>
+<li><code>version</code> field must be equal to <strong>2</strong> <em>and</em> <code>version_date</code> field must be later than or equal to <strong>September 1, 2020</strong>: <code>version_date = 2 and version_date &gt;= '2020-09-01'</code></li>
+<li><code>doc_name</code> field must <em>not</em> equal <strong>Consent Form</strong>: <code>doc_name &lt;&gt; &quot;Consent Form&quot;</code></li>
+<li><code>doc_name</code> field must be equal to the field <code>doc_title</code>: <code>doc_name = doc_title</code></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="error-description-expression"></a><a href="#error-description-expression" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Error Description Expression</h2>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/innovocommerce-explore.github.io/docs/next/doc2"><span class="arrow-prev">← </span><span>document number 2</span></a><a class="docs-next button" href="/innovocommerce-explore.github.io/docs/next/doc3"><span>This is document number 3</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#validated-field">Validated field</a></li><li><a href="#rule-expression">Rule expression</a><ul class="toc-headings"><li><a href="#comparisons">Comparisons</a></li><li><a href="#logical-operations">Logical Operations</a></li><li><a href="#examples">Examples</a></li></ul></li><li><a href="#error-description-expression">Error Description Expression</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/innovocommerce-explore.github.io/" class="nav-home"><img src="/innovocommerce-explore.github.io/img/favicon.ico" alt="Xenon Documentation" width="66" height="58"/></a><div><h5>Docs</h5><a href="/innovocommerce-explore.github.io/docs/doc1.html">Getting Started (or other categories)</a><a href="/innovocommerce-explore.github.io/docs/doc2.html">Guides (or other categories)</a><a href="/innovocommerce-explore.github.io/docs/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/innovocommerce-explore.github.io/users">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/innovocommerce-explore.github.io/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/innovocommerce-explore.github.io/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Your Name or Your Company Name</section></footer></div></body></html>
